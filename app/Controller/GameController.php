@@ -1,13 +1,14 @@
 <?php
 App::uses('AppController', 'Controller');
 /**
- * Dealers Controller
+ * Game Controller
  *
- * @property Dealer $Dealer
+ * 
  */
 class GameController extends AppController {
 	public function start(){
-
+		$this->redirect(array('controller' => 'BookList', 
+			'action'=>'index'));
 	}
 /**
  * index method
