@@ -16,7 +16,7 @@ class GameController extends AppController {
  * @return void
  */
 	public function index() {
-		$this->Dealer->recursive = 0;
+		$this->Game->recursive = 0;
 		$this->set('dealers', $this->paginate());
 	}
 
@@ -28,11 +28,11 @@ class GameController extends AppController {
  * @return void
  */
 	public function view($id = null) {
-		$this->Dealer->id = $id;
-		if (!$this->Dealer->exists()) {
+		$this->Game->id = $id;
+		if (!$this->Game->exists()) {
 			throw new NotFoundException(__('Invalid dealer'));
 		}
-		$this->set('dealer', $this->Dealer->read(null, $id));
+		$this->set('dealer', $this->Game->read(null, $id));
 	}
 
 /**

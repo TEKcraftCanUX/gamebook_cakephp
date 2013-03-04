@@ -18,4 +18,24 @@ class BookTest extends CakeTestCase {
     $expected = 2;
     $this->assertEquals($expected, $result);
   }
+
+  public function testShouldHaveATitle() {
+    $title = 'Treason at Helm\'s Deep';
+    $result = $this->Book->getTitle(1);
+    $this->assertEquals($title, $result);
+  }
+
+  public function testShouldHaveChapters() {
+    $chapterID = array(1,3);
+    $result = $this->Book->getChapters(2);
+    $this->assertEquals($chapterID, $result);
+  }
+
+  /**
+   * @expectedException Exception
+  */
+  public function testShouldReturnNotFoundIfBookDoesntExist() {
+    $this->Book->getDefaultCharacter(-1);
+  }
+
 }
