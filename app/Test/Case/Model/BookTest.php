@@ -2,7 +2,7 @@
 App::uses('Book', 'Model');
 
 class BookTest extends CakeTestCase {
-  public $fixtures = array('app.book', 'app.character');
+  public $fixtures = array('app.book', 'app.character', 'app.chapter');
 
   public function setUp() {
     parent::setUp();

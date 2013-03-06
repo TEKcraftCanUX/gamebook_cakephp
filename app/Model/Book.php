@@ -8,11 +8,11 @@ class Book extends AppModel {
       'foreignKey' => 'DefaultCharacterID'
     ));
 
-  // public $hasMany = array(
-  //       'Chapter' => array(
-  //           'className' => 'Chapter',
-  //           'foreignKey' => 'BookID'
-        //));
+  public $hasMany = array(
+        'Chapter' => array(
+            'className' => 'Chapter',
+            'foreignKey' => 'BookID'
+        	));
 
   public function getDefaultCharacter($ID) {
     $characterID = $this->read('DefaultCharacterID', $ID);
@@ -25,8 +25,9 @@ class Book extends AppModel {
   }
 
   public function getChapters($ID){
-  	//$chapters = $this->read('ID', $ID);
-  	//return $chapters[''];
+  	 //$chapters = $this->Chapter->find('all', $ID);
+  	$chapters = $this->Chapter->read('ID', $ID);
+  	// return $chapters[''];
   	return array(1,3);
   }
 }
