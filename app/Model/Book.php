@@ -25,9 +25,15 @@ class Book extends AppModel {
   }
 
   public function getChapters($ID){
-  	 //$chapters = $this->Chapter->find('all', $ID);
-  	$chapters = $this->Chapter->read('ID', $ID);
-  	// return $chapters[''];
-  	return array(1,3);
+  	 $chapters = $this->Chapter->find('all', array(
+  	 		'conditions' => array('Chapter.BookID =' => $ID)
+  	 	));
+  	 //throw new Exception('test' . $ID);
+  	 // store the ID's in an array (there's probably a built-in method to do this - feel free to edit below code if you know how)
+  	 $chapterIDs = array();
+  	 foreach ($chapters as $chapter){
+  	 	array_push($chapterIDs, $chapter['Chapter']['ID']);
+  	 }
+  	 return $chapterIDs;
   }
 }
