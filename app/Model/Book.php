@@ -28,7 +28,6 @@ class Book extends AppModel {
   	 $chapters = $this->Chapter->find('all', array(
   	 		'conditions' => array('Chapter.BookID =' => $ID)
   	 	));
-  	 //throw new Exception('test' . $ID);
   	 // store the ID's in an array (there's probably a built-in method to do this - feel free to edit below code if you know how)
   	 $chapterIDs = array();
   	 foreach ($chapters as $chapter){
